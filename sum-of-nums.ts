@@ -13,7 +13,7 @@
 // Documentation:
 // @raycast.author Jerry Wang
 
-const input = Deno.args[0] || "";
+const [input = ''] = Deno.args;
 
 const numbers = [...input.matchAll(/[\d.]+/g)].map((n) => +n).filter(Boolean);
 
