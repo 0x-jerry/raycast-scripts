@@ -1,17 +1,18 @@
-#!/usr/bin/env deno run
-
+#!/usr/bin/env deno run --unstable
+// 
 // Required parameters:
 // @raycast.schemaVersion 1
 // @raycast.title sum
 // @raycast.mode compact
-
+// 
 // Optional parameters:
 // @raycast.icon 🔢
 // @raycast.packageName utils
 // @raycast.argument1 { "type": "text", "placeholder": "input" }
-
+// 
 // Documentation:
 // @raycast.author Jerry Wang
+// @raycast.authorURL https://github.com/0x-jerry
 
 const [input = ''] = Deno.args;
 

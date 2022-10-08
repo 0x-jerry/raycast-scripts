@@ -1,5 +1,6 @@
 # My Raycast Script Commands
 
-Reference: [Raycast]
+Dependency: These scripts requires Deno.
+Install Deno: https://deno.land/#installation
 
-[raycast]: https://www.raycast.com/
+See full documentation here: https://github.com/raycast/script-commands
