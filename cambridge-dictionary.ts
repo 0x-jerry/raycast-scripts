@@ -17,11 +17,16 @@
 import { load, type Element } from "https://esm.sh/cheerio@1.0.0-rc.12";
 import * as colors from "https://deno.land/std@0.220.1/fmt/colors.ts";
 
-const [input = ''] = Deno.args;
+const [input = ""] = Deno.args;
 
+const dictionaryBaseUrl =
+  "https://dictionary.cambridge.org/zhs/词典/英语-汉语-简体/";
 const result = await search(input);
 
 formatPrint(result);
+console.log()
+const url = getDictionaryUrl(input);
+console.log(colors.blue(colors.underline(url)));
 
 function formatPrint(json: SearchResult[]) {
   const str = json
@@ -59,8 +64,7 @@ interface SearchResult extends Translation {
 }
 
 async function search(word: string) {
-  const url = "https://dictionary.cambridge.org/zhs/词典/英语-汉语-简体/";
-  const totalUrl = `${url}${encodeURIComponent(word)}`;
+  const totalUrl = getDictionaryUrl(word);
 
   const _url = encodeURI(totalUrl);
 
@@ -79,6 +83,12 @@ async function search(word: string) {
   const translations = extractTranslation(html);
 
   return translations;
+}
+
+function getDictionaryUrl(word: string) {
+  const totalUrl = `${dictionaryBaseUrl}${encodeURIComponent(word)}`;
+
+  return totalUrl;
 }
 
 function extractTranslation(html: string) {
