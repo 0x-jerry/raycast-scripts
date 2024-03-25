@@ -1,4 +1,4 @@
-#!/usr/bin/env deno run --unstable
+#!/usr/bin/env deno run
 // 
 // Raycast Script Command Template
 //
@@ -16,7 +16,7 @@
 //
 // Optional parameters:
 // @raycast.icon 🤖
-// @raycast.argument2 { "type": "text", "placeholder": "query" }
+// @raycast.argument1 { "type": "text", "placeholder": "query" }
 //
 // Documentation:
 // @raycast.author Jerry Wang

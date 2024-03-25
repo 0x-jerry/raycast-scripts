@@ -1,4 +1,4 @@
-#!/usr/bin/env deno run --unstable
+#!/usr/bin/env deno run
 // 
 // Required parameters:
 // @raycast.schemaVersion 1
@@ -6,7 +6,7 @@
 // @raycast.mode compact
 // 
 // Optional parameters:
-// @raycast.icon 🔢
+// @raycast.icon 🧮
 // @raycast.packageName utils
 // @raycast.argument1 { "type": "text", "placeholder": "input" }
 // 

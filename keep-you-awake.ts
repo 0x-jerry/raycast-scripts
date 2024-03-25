@@ -1,24 +1,26 @@
-#!/usr/bin/env deno run --unstable --allow-run
+#!/usr/bin/env deno run --allow-run
 //
 // Required parameters:
 // @raycast.schemaVersion 1
 // @raycast.title kya
-// @raycast.mode compact
+// @raycast.mode silent
 //
 // Optional parameters:
-// @raycast.icon 🔢
+// @raycast.icon ☕
 // @raycast.packageName utils
 // @raycast.argument1 { "type": "text", "placeholder": "ex. 0 or 2[m] or 10s or 12h or 1d", "optional": true }
 //
 // Documentation:
 // @raycast.author Jerry Wang
-// @raycast.authorURL https://github.com/0x-jerry
+// @raycast.authorURL https://github.com/0x-jerr☕y
 // @raycast.description Keeping you awake
+
+import { run } from "./_utils.ts";
 
 /**
  * `0` means off, `''` means infinite.
  */
-const [input = ""] = Deno.args;
+const [input] = Deno.args;
 
 resolve(input);
 
@@ -46,24 +48,18 @@ async function resolve(duration: string) {
 async function openKYA(enable: boolean, duration: string) {
   const open = "open";
   const _enable = "keepingyouawake:///activate";
-  const _disenable = "keepingyouawake:///deactivate";
+  const _disable = "keepingyouawake:///deactivate";
 
   if (!enable) {
-    const p = Deno.run({
-      cmd: [open, _disenable],
-    });
-    await p.status();
+    await run(open, _disable);
     console.log("KYA closed.");
     return;
   }
 
   const query = parseDuration(duration);
 
-  const p = Deno.run({
-    cmd: [open, `${_enable}?${query}`],
-  });
+  await run(open, `${_enable}?${query}`);
 
-  await p.status();
   console.log(`KYA start with ${query || "infinite"}`);
   return;
 }
