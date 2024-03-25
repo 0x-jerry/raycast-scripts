@@ -12,7 +12,7 @@
 //
 // Documentation:
 // @raycast.author Jerry Wang
-// @raycast.authorURL https://github.com/0x-jerr☕y
+// @raycast.authorURL https://github.com/0x-jerry
 // @raycast.description Keeping you awake
 
 import { run } from "./_utils.ts";
